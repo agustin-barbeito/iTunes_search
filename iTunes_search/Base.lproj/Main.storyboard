@@ -1,25 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="iTunes_search" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="iTunes_imgT.png" translatesAutoresizingMaskIntoConstraints="NO" id="B4y-6r-OtW">
+                                <rect key="frame" x="175" y="28" width="250" height="250"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search iTunes music" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-On-nfe">
+                                <rect key="frame" x="92" y="327" width="417" height="29"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.09735991379310345" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDC-QB-h7P">
+                                <rect key="frame" x="215" y="377" width="171" height="30"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CNc-3a-CMH"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="K6G-Nw-TMH">
+                                <rect key="frame" x="0.0" y="437" width="600" height="250"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="QWe-mL-bQQ">
+                                <rect key="frame" x="260" y="695" width="80" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.85098039215686272" green="0.23921568627450981" blue="0.070588235294117646" alpha="0.79759394171779141" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B4y-6r-OtW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0CR-J1-p2D"/>
+                            <constraint firstItem="XPH-On-nfe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.04" id="CLv-7c-L8S"/>
+                            <constraint firstItem="QWe-mL-bQQ" firstAttribute="top" secondItem="K6G-Nw-TMH" secondAttribute="bottom" constant="8" id="D5Y-ru-MTP"/>
+                            <constraint firstItem="FDC-QB-h7P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" constant="111" id="DXU-KY-z1J"/>
+                            <constraint firstItem="FDC-QB-h7P" firstAttribute="top" secondItem="XPH-On-nfe" secondAttribute="bottom" constant="21" id="ECA-fq-OtX"/>
+                            <constraint firstItem="XPH-On-nfe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IGq-aF-QwY"/>
+                            <constraint firstItem="B4y-6r-OtW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LIZ-Kx-1ll"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QWe-mL-bQQ" secondAttribute="bottom" constant="4" id="NEk-RT-3a5"/>
+                            <constraint firstItem="B4y-6r-OtW" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.33" constant="7.1199999999999761" id="NJk-Bx-3Ms"/>
+                            <constraint firstItem="XPH-On-nfe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.69" constant="3.0000000000000568" id="QvQ-lw-UXN"/>
+                            <constraint firstItem="K6G-Nw-TMH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TfC-GR-3xP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K6G-Nw-TMH" secondAttribute="trailing" constant="-20" id="Uif-Lj-Emg"/>
+                            <constraint firstItem="QWe-mL-bQQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" constant="20" id="XTr-c4-3ha"/>
+                            <constraint firstItem="XPH-On-nfe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-26.5" id="biS-yl-AWz"/>
+                            <constraint firstItem="K6G-Nw-TMH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" constant="29.200000000000017" id="d27-uv-oac"/>
+                            <constraint firstItem="B4y-6r-OtW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" constant="-110" id="gNg-Oj-QxG"/>
+                            <constraint firstItem="QWe-mL-bQQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jBB-c6-yNO"/>
+                            <constraint firstItem="FDC-QB-h7P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="joA-x1-jfp"/>
+                            <constraint firstItem="QWe-mL-bQQ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.05" id="mTx-UV-Pat"/>
+                            <constraint firstItem="FDC-QB-h7P" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.04" constant="0.55999999999999872" id="ypv-uE-W0D"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="736"/>
+                    <connections>
+                        <outlet property="goButton" destination="FDC-QB-h7P" id="lQs-q5-KSq"/>
+                        <outlet property="imageView" destination="B4y-6r-OtW" id="Ap2-FS-Oek"/>
+                        <outlet property="pageControl" destination="QWe-mL-bQQ" id="6Fy-jH-kcJ"/>
+                        <outlet property="scrollMusicView" destination="K6G-Nw-TMH" id="imo-Fe-mCk"/>
+                        <outlet property="searchField" destination="XPH-On-nfe" id="r5u-vw-n9J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="286" y="297"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iTunes_imgT.png" width="1000" height="981"/>
+    </resources>
 </document>
